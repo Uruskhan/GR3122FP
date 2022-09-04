@@ -8,14 +8,21 @@ if (inputLine != null)
     int inputNumber = int.Parse(inputLine);
 
     int startNumber = 2;
-
-    while (startNumber > 1 && startNumber<inputNumber)
+    // вариант Голикова
+    while (startNumber <= inputNumber)
     {
-        
-        if (startNumber % 2 == 0)
-        {
-            Console.WriteLine(startNumber + ", ");
-        }
+        Console.Write(startNumber + ", ");
         startNumber = startNumber + 2;
     }
+
+    // мой вариант
+    // while (startNumber > 1 && startNumber<inputNumber)
+    // {
+
+    //     if (startNumber % 2 == 0)
+    //     {
+    //         Console.WriteLine(startNumber + ", ");
+    //     }
+    //     startNumber = startNumber + 2;
+    // }
 }

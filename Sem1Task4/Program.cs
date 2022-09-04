@@ -12,25 +12,37 @@ if (inputLineA != null && inputLineB != null && inputLineC != null)
     int inputNumberB = int.Parse(inputLineB);
     int inputNumberC = int.Parse(inputLineC);
 
-    int Max = 0;
-    if (inputNumberA > inputNumberB)
-    {
-        Max = inputNumberA;
-        if (inputNumberC > Max)
-        {
-            Max = inputNumberC;
-        }
-    }
-    else
-    {
-        if (inputNumberB > inputNumberC)
-        {
-            Max = inputNumberB;
-        }
-        else
-        {
-            Max = inputNumberC;
-        }
-    }
-    Console.WriteLine("Maximum of this digits is " + Max);
+Console.WriteLine (Math.Max(inputNumberA,Math.Max(inputNumberB,inputNumberC)));
+    // //  вариант Голикова
+    // int Max = inputNumberA;
+    // if (inputNumberB > Max)
+    // {
+    //     Max = inputNumberB;
+    // }
+    // if (inputNumberC > Max)
+    // {
+    //     Max = inputNumberC;
+    // }
+    // // мой вариант
+    // // int Max = 0;
+    // // if (inputNumberA > inputNumberB)
+    // // {
+    // //     Max = inputNumberA;
+    // //     if (inputNumberC > Max)
+    // //     {
+    // //         Max = inputNumberC;
+    // //     }
+    // // }
+    // // else
+    // // {
+    // //     if (inputNumberB > inputNumberC)
+    // //     {
+    // //         Max = inputNumberB;
+    // //     }
+    // //     else
+    // //     {
+    // //         Max = inputNumberC;
+    // //     }
+    // // }
+    // Console.WriteLine("Maximum of this digits is " + Max);
 }
