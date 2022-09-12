@@ -1,5 +1,5 @@
-﻿// написать программу которая на вход получает число N
-// и на выходе выводит таблицу кубов всех чисел от единицы до N
+﻿// Напишите цикл, который принимает на вход два числа (A и B) и возводит число A в
+// натуральную степень B.
 
 int ReadData(string line)
 {
@@ -7,19 +7,11 @@ int ReadData(string line)
     int number = int.Parse(Console.ReadLine() ?? "0");
     return number;
 }
-// 1 2 3 4  5  6
-// 1 8 27 64 125 216
 
-string lineNumbers(int numberN, int pow)
+double CalculateData(int numA, int numB)
 {
-    int i = 1;
-    string outLine = string.Empty;
-    while (i <= numberN)
-    {
-        outLine = outLine + Math.Pow(i, pow) + "\t | ";
-        ++i;
-    }
-    return outLine;
+    double result = Math.Pow(numA, numB);
+    return result;
 }
 
 void PrintResult(string line)
@@ -27,12 +19,13 @@ void PrintResult(string line)
     Console.WriteLine(line);
 }
 
+int numberA = ReadData("Введите число A: ");
+int numberB = ReadData("Введите число B: ");
 
-int num = ReadData("Введите число: ");
-int num2 = ReadData("Введите степень в которую хотите возвести число: ")
-    
-string result = lineNumbers(num, 1);
+DateTime d1 = DateTime.Now;
+CalculateData(numberA, numberB);
+Console.WriteLine("Времени на обработку данных затрачено: " + (DateTime.Now - d1));
 
+double res = CalculateData(numberA, numberB);
 
-PrintResult(result);
-PrintResult(result2);
+PrintResult("Число " + numberA + " в степени " + numberB + " равно " + res);
