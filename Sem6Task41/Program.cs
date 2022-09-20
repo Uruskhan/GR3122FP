@@ -1,35 +1,33 @@
-﻿// ввод чисел
-int[] mas = { 5, 6, 3, 7, 1 };
+﻿// // Пользователь вводит с клавиатуры M чисел. Посчитайте, сколько чисел больше 0 ввёл
+// // пользователь.
+// // * Пользователь вводит число нажатий, затем программа следит за нажатиями и
+// // выдает сколько чисел больше 0 было введено.
 
-// сортировка
-int temp;
-for (int i = 0; i < mas.Length-1; i++)
+double ReadData(string line)
 {
-for (int j = i + 1; j < mas.Length; j++)
-{
-Console.WriteLine($"i = {i} и j = {j}");
-Console.WriteLine("Текущее состояние массива: "+ String.Join(",",mas));
-Console.WriteLine($"Сравниваем mas[i] = {mas[i]} и mas[j] = {mas[j]}");
-if (mas[i] > mas[j])
-{
-Console.WriteLine("mas[i] больше mas[j]");
-Console.WriteLine($"Работаем с : mas[i] = {mas[i]} и mas[j] = {mas[j]}");
-temp = mas[i];
-mas[i] = mas[j];
-mas[j] = temp;
-Console.WriteLine($"Поменяли местами, теперь : mas[i] = {mas[i]} и mas[j] = {mas[j]} ");
-}
-else
-{
-Console.WriteLine("mas[i] меньше mas[j], продолжаем итерации");
-}
-}
+    Console.Write(line);
+    //Считываем число и преобразуем из строки в double
+    double number = double.Parse(Console.ReadLine() ?? "0");
+    //Возвращаем значение
+    return number;
 }
 
-// вывод
-Console.WriteLine("Вывод отсортированного массива");
-for (int i = 0; i < mas.Length; i++)
+int CountPosNumb(double num)
 {
-Console.WriteLine(mas[i]);
+    int result = 0;
+    for (int i = 0; i < num; i++)
+    {
+        double numbEnt = ReadData("Введите число: ");
+        if (numbEnt > 0) result++;
+    }
+    return result;
 }
-Console.ReadLine();
+
+void PrintResult(string line)
+{
+    Console.WriteLine(line);
+}
+
+Console.WriteLine("Введите количество чисел для анализа: ");
+double num = ReadData("");
+PrintResult("Количество положительных чисел: " + CountPosNumb(num));

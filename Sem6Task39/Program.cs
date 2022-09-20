@@ -2,14 +2,6 @@
 // одномерный массив (последний элемент будет на
 // первом месте, а первый - на последнем и т.д.)
 
-
-int ReadData(string line)
-{
-    Console.WriteLine(line);
-    int number = int.Parse(Console.ReadLine() ?? "0");
-    return number;
-}
-
 int[] GenArray(int arrLen, int downBorder, int topBorder)
 {
     Random rand = new Random();
@@ -30,42 +22,57 @@ int[] GenArray(int arrLen, int downBorder, int topBorder)
     return array;
 }
 
-int[] SwapNewArray(int[] arr)
+int[] SwapNewArray(int[] arr) // разворот массива с созданием нового 
 {
-    int[] outArray = new int[arr.Length]
-    Random 
+    int[] outArray = new int[arr.Length];
+    for (int i = 0; i < arr.Length; i++)
+    {
+        outArray[i] = arr[arr.Length - 1 - i];
+    }
+    return outArray;
 }
 
+int[] SwapArray(int[] arr) // разворот массива с временной переменной 
+{
+    int temp = 0;
+    for (int i = 0; i < arr.Length / 2; i++)
+    {
+        temp = arr[arr.Length - 1 - i];
+        arr[arr.Length - 1 - i] = arr[i];
+        arr[i] = temp;
+    }
+    return arr;
+}
+
+int[] SwapSimpleArray(int[] arr) // разворот массива встроенными инструментами
+{
+    arr.Reverse();
+    return arr;
+}
 
 void PrintArray(int[] array)
 {
-    for (int i = 0; i < array.Length-1; i++)
+    for (int i = 0; i < array.Length - 1; i++)
     {
         Console.Write(array[i] + ", ");
     }
-    Console.WriteLine(array[array.Length-1]);
+    Console.WriteLine(array[array.Length - 1]);
     Console.WriteLine();
 }
 
-int countNumber(int[] arr, int min, int max)
-{
-    int count = 0;
-    for (int i = 0; i < arr.Length; i++)
-    {
-        if (arr[i] >= min && arr[i] <= max) count++;
-    }
-    return count;
-}
+int[] array = GenArray(20, 1, 100);
+Console.WriteLine("Исходный массив");
+PrintArray(array);
 
-int num = ReadData("Введите длину одномерного массива: ");
-int minArr = ReadData("Введите нижнюю границу: ");
-int maxArr = ReadData("Введите верхнюю границу: ");
+Console.WriteLine("Скорости разворота различными методами:");
+DateTime d1 = DateTime.Now;
+PrintArray(SwapNewArray(array));
+Console.WriteLine(DateTime.Now - d1);
 
-int min = ReadData("Введите нижнюю границу искомого интервала: ");
-int max = ReadData("Введите верхнюю границу искомого интервала: ");
+DateTime d2 = DateTime.Now;
+PrintArray(SwapArray(array));
+Console.WriteLine(DateTime.Now - d2);
 
-int[] result1 = GenArray(num, minArr, maxArr);
-int result2 = countNumber(result1, min, max);
-
-PrintArray(result1);
-Console.WriteLine(result2);
+DateTime d3 = DateTime.Now;
+PrintArray(SwapSimpleArray(array));
+Console.WriteLine(DateTime.Now - d3);
