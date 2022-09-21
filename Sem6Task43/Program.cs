@@ -20,7 +20,7 @@ double[] LineCrossFinder(double numk1, double numb1, double numk2, double numb2)
     return result;
 }
 
-void PrdoubleArray(double[] array)
+void PrintArray(double[] array)
 {
     for (int i = 0; i < array.Length - 1; i++)
     {
@@ -29,7 +29,7 @@ void PrdoubleArray(double[] array)
     Console.WriteLine(array[array.Length - 1]);
     Console.WriteLine();
 }
-// void PrdoubleResult(string line)
+// void PrintResult(string line)
 // {
 //     Console.WriteLine(line);
 // }
@@ -41,4 +41,4 @@ double num3 = ReadData("Задайте коэффициент k2 для втор
 double num4 = ReadData("Задайте значение b2 для второй прямой: ");
 
 double[] crossFinder = LineCrossFinder(num1, num2, num3, num4);
-PrdoubleArray(crossFinder);
+PrintArray(crossFinder);
