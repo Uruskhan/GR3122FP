@@ -76,19 +76,20 @@ void PrintArray(double[] array) // принимает на вход массив
     Console.WriteLine();
 }
 
-void Print2DArrayDiffColor(int[,] array) // принимает на вход массив и раскрашивает его разеыми цветами
-{
-    int[,] newArray = new int[array.GetLength(0), array.GetLength(1)];
-    for (int i = 0; i < array.GetLength(0); i++)
-    {
-        for (int j = 0; j < array.GetLength(1); j++)
-        {
-            newArray[i, j] = array[i, j];
-            Console.Write($"{newArray[i, j]} \t");
-        }
-        Console.WriteLine();    
-    }
-}
+// void Print2DArrayDiffColor(int[,] array) // принимает на вход массив и раскрашивает его разеыми цветами
+// {
+//     int[,] newArray = new int[array.GetLength(0), array.GetLength(1)];
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < array.GetLength(1); j++)
+//         {
+//             newArray[i, j] = array[i, j];
+
+//             Console.Write($"{newArray[i, j]} \t");
+//         }
+//         Console.WriteLine();    
+//     }
+// }
 
 int rowsN = ReadData("Введите количество строк: ");
 int columnsN = ReadData("Введите количество столбцов: ");
@@ -98,6 +99,7 @@ Print2DArray(arr2D);
 double[] avgColumnSum = AvgSumFinder(ColumnSumFinder(arr2D), rowsN);
 PrintArray(avgColumnSum);
 
-Console.WriteLine();
+// Console.WriteLine();
 
-Print2DArrayDiffColor(arr2D);
+// Print2DArrayDiffColor(arr2D);
+
