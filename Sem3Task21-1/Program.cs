@@ -2,12 +2,18 @@
 // в виде строки и находит между двумя этими точками расстояние
 // НЕ РЕШЕНА!!!
 
-int ReadData(string line) // перевожу в массив полученые в виде строки координаты
+int ReadData(string line)
 {
     Console.WriteLine(line);
-    
-    return array;
+    int number = int.Parse(Console.ReadLine() ?? "0");
+    return number;
 }
+
+void PrintResult(string prefix, string data)
+{
+    Console.WriteLine(prefix + data);
+}
+
 
 // double distanceFinder(int number)
 // {

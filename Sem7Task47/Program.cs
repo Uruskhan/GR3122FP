@@ -34,7 +34,8 @@ void Print2DArray(double[,] array) // принимает на вход масс�
     }
 }
 
-void Print2DArrayColored(double[,] array) // принимает на вход массив и выводит на экран
+// принимает на вход массив и выводит его на экран раскрашенным в один цвет
+void Print2DArrayColored(double[,] array) 
 {
     for (int i = 0; i < array.GetLength(0); i++)
     {
@@ -47,6 +48,7 @@ void Print2DArrayColored(double[,] array) // принимает на вход м
     }
 }
 
+// принимает на вход массив и раскрашивает каждое число массива (!) разными цветами
 void Print2DArrayDiffColor(double[,] array) // принимает на вход массив и раскрашивает его разеыми цветами
 {
     ConsoleColor[] col = new ConsoleColor[]{ConsoleColor.Black,ConsoleColor.Blue,ConsoleColor.Cyan,
@@ -68,9 +70,43 @@ void Print2DArrayDiffColor(double[,] array) // принимает на вход 
     }
 }
 
+// принимает на вход массив и раскрашивает каждую цифру (!) разными цветами
+void Print2DArrayDiffColor2(double[,] array) 
+{
+    ConsoleColor[] col = new ConsoleColor[]{ConsoleColor.Black,ConsoleColor.Blue,ConsoleColor.Cyan,
+                                        ConsoleColor.DarkBlue,ConsoleColor.DarkCyan,ConsoleColor.DarkGray,
+                                        ConsoleColor.DarkGreen,ConsoleColor.DarkMagenta,ConsoleColor.DarkRed,
+                                        ConsoleColor.DarkYellow,ConsoleColor.Gray,ConsoleColor.Green,
+                                        ConsoleColor.Magenta,ConsoleColor.Red,ConsoleColor.White,
+                                        ConsoleColor.Yellow};
+
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            char[] number = array[i, j].ToString().ToCharArray();
+            for(int k = 0; k < number.Length; k++)
+            {
+                Console.ForegroundColor = col[new System.Random().Next(0, 16)];
+                Console.Write(number[k]);
+                Console.ResetColor();
+            }
+            Console.Write("\t");
+        }
+        Console.WriteLine();
+    }
+}
+
 int rowsN = ReadData("Введите количество строк: ");
 int columnsN = ReadData("Введите количество столбцов: ");
 double[,] arr2D = Gen2DArray(rowsN, columnsN, 10, 99);
 Print2DArray(arr2D);
+
+Console.WriteLine();
+Print2DArrayColored(arr2D);
+
 Console.WriteLine();
 Print2DArrayDiffColor(arr2D);
+
+Console.WriteLine();
+Print2DArrayDiffColor2(arr2D);
